@@ -6,7 +6,8 @@ ipcMain.on('open-file-dialog', (event) => {
 		buttonLabel: '确认上传'
 	}).then(result => {
 		if (!result.canceled) {
-			event.sender.send('selected-directory', '这是上传的文件')
+			console.log(result)
+			event.sender.send('selected-directory', result.filePaths)
 		}
 	})
 })

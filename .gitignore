@@ -6,6 +6,7 @@
 /out-tsc
 /outApp
 /installer/*
+package-lock.json
 !installer/package.json
 !installer/*.ico
 !installer/*.icns
