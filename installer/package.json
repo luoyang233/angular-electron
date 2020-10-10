@@ -1,0 +1,57 @@
+{
+  "name": "td-demo",
+  "version": "0.0.0",
+  "main": "electron-main.js",
+  "scripts": {
+    "dist:mac": "electron-builder --mac",
+    "dist:win": "electron-builder --win",
+    "dist:linux": "electron-builder --linux"
+  },
+  "build": {
+    "productName": "td-demo",
+    "appId": "com.example.deepDraw",
+    "compression": "maximum",
+    "directories": {
+      "buildResources": "dist",
+      "output": "outApp"
+    },
+    "asar": false,
+    "win": {
+      "icon": "favicon-win.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "mac": {
+      "icon": "favicon-mac.icns"
+    },
+    "linux": {
+      "icon": "favicon-mac.icns"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "favicon-win.ico",
+      "uninstallerIcon": "favicon-win.ico",
+      "installerHeaderIcon": "favicon-win.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  },
+  "private": true,
+  "dependencies": {
+    "ali-oss": "^6.10.0",
+    "axios": "^0.20.0"
+  },
+  "devDependencies": {
+    "electron": "^10.1.1",
+    "electron-builder": "^22.8.1"
+  }
+}

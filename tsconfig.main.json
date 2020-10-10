@@ -1,0 +1,19 @@
+{
+	"extends": "./tsconfig.base.json",
+	"compilerOptions": {
+			"outDir": "./dist",  // 打包目录
+			"baseUrl": "./",
+			"module": "commonjs",
+			"typeRoots": [
+					"../node_modules/@types"  // 引入 .d.ts 文件
+			],
+			"types": [
+				"node"
+			]
+	},
+	"include": [
+			"electron-main.ts",
+			"main-process/**/*.ts", // 引入其余主进程文件
+	],
+	"target": "electron-main",
+}
