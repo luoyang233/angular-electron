@@ -7,7 +7,7 @@
 
 ## 开发方式说明
 1. 主进程main文件为根目录下`electron-main.ts`
-2. 其他主进程文件在根目录main-process/**/*.ts下编写
+2. 其他主进程文件在根目录main-process下编写
 3. 渲染进程在src目录下同angular web开发方式相同
 
 ## 使用打包方法
