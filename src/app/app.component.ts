@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-const { ipcRenderer } = require('electron')
+import { IpcRendererService } from '../ipc/ipc-renderer.service';
 
+const key = 'open-file-dialog'
 @Component({
 	selector: 'app-root',
 	template: `
@@ -13,19 +14,20 @@ export class AppComponent implements OnInit {
 	title: string
 
 	constructor(
-		private ref: ChangeDetectorRef
+		private ref: ChangeDetectorRef,
+		private ipcRendererService: IpcRendererService
 	) { }
 
 
 	ngOnInit(): void {
-		ipcRenderer.on('selected-directory', (event, result) => {
-			this.title = result
+		this.ipcRendererService.on(`${key}reply`, (event, result) => {
+			this.title = result.filePaths
 			this.ref.detectChanges()
 		})
 	}
 
 	onClick() {
-		ipcRenderer.send('open-file-dialog')
+		this.ipcRendererService.api(key)
 	}
 
 }

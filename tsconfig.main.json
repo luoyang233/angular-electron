@@ -13,7 +13,7 @@
 	},
 	"include": [
 			"electron-main.ts",
-			"main-process/**/*.ts", // 引入其余主进程文件
+			"main-process", // 引入其余主进程文件
 	],
 	"target": "electron-main",
 }

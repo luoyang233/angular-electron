@@ -2,12 +2,7 @@ const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const glob = require('glob')
 const url = require('url')
-
-
-function loadMainProcess() {
-	const files = glob.sync(path.join(__dirname, './main-process/**/*.*s'))
-	files.forEach((file) => { require(file) })
-}
+require('./main-process');
 
 function createWindow() {
 	// 创建浏览器窗口
@@ -30,8 +25,6 @@ function createWindow() {
 	// win.webContents.openDevTools();
 }
 
-// 加载主进程文件
-loadMainProcess();
 
 // Electron会在初始化完成并且准备好创建浏览器窗口时调用这个方法
 // 部分 API 在 ready 事件触发后才能使用。
